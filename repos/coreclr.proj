@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PreferredHash>730c3c5c66183418adbbc63acd40d261c9ce23ed</PreferredHash>
+    <PreferredHash>41f0cc37361e7b1dd37ca981b82a47b47b842db9</PreferredHash>
   </PropertyGroup>
 
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.props))/dir.props" />
@@ -25,7 +25,7 @@
     <BuildArguments>$(BuildArguments) /p:EnableSourceLink=false</BuildArguments>
     <BuildArguments>$(BuildArguments) -warnaserror:0</BuildArguments>
 
-    <BuildCommand>$(ProjectDirectory)/build$(ShellExtension) $(BuildArguments)</BuildCommand>
+    <BuildCommand>bash -x $(ProjectDirectory)/build$(ShellExtension) $(BuildArguments)</BuildCommand>
 
     <BuildCommand Condition="$(Platform.Contains('arm'))">$(ArmEnvironmentVariables) $(BuildCommand)</BuildCommand>
 
@@ -47,6 +47,17 @@
 
   <ItemGroup>
     <EnvironmentVariables Include="OfficialBuildId=$(OfficialBuildId)" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <BuildTraversalSdkOverrideVersion>2.0.2</BuildTraversalSdkOverrideVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Set Microsoft.Build.Traversal to work with source-build sdk resolver -->
+    <EnvironmentVariables Include="SOURCE_BUILT_SDK_ID_BUILDTRAVERSAL=Microsoft.Build.Traversal" />
+    <EnvironmentVariables Include="SOURCE_BUILT_SDK_VERSION_BUILDTRAVERSAL=$(BuildTraversalSdkOverrideVersion)" />
+    <EnvironmentVariables Include="SOURCE_BUILT_SDK_DIR_BUILDTRAVERSAL=$(PackagesDir)microsoft.build.traversal/$(BuildTraversalSdkOverrideVersion)" />
   </ItemGroup>
 
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.targets))/dir.targets" />
