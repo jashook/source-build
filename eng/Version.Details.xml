@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Dependencies>
   <ToolsetDependencies>
-    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19218.7">
+    <Dependency Name="Microsoft.DotNet.Arcade.Sdk" Version="1.0.0-beta.19313.18">
       <Uri>https://github.com/dotnet/arcade</Uri>
-      <Sha>7f634f2ba11e256580392f3e67a57e2761d44ea7</Sha>
+      <Sha>8952b877fa6bca387cd4321b33dcdf6778e31240</Sha>
     </Dependency>
     <Dependency Name="Private.SourceBuild.ReferencePackages" Version="1.0.0-beta.19313.1">
       <Uri>https://github.com/dotnet/source-build-reference-packages</Uri>
@@ -38,7 +38,7 @@
     </Dependency>
     <Dependency Name="Microsoft.NETCore.Compilers" Version="3.1.0-beta3-19217-05">
       <Uri>https://github.com/dotnet/roslyn</Uri>
-      <Sha>79b8271f65609b23e0c0ee1babed6862b7c5ed56</Sha>
+      <Sha>58a4b1e79aea28115e66b06f850c83a3f1fcb6d3</Sha>
     </Dependency>
     <Dependency Name="Microsoft.Build" Version="16.0.462">
       <Uri>https://github.com/microsoft/msbuild</Uri>
